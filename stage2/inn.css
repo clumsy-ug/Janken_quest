@@ -1,0 +1,8 @@
+body {
+    background-color: black;
+    transition: background-color 5s ease;
+}
+
+.white-screen {
+    background-color: white;
+}

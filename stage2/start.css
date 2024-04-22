@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#guidemonster {
+    max-width: 15%;
+    max-height: 30%;
+    animation-name: fadeDownAnime;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+@keyframes fadeDownAnime {
+    from {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 黒板 */
+.blackboard {
+    position: relative;
+    /* 左右の余白を自動調整 */
+    margin: 0 auto;
+    /* 左右のパディングを調整 */
+    padding: 1.6rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0, 0, 0, 0.9);
+    max-width: 500px;
+}
+
+#change-text::after {
+    content: '▼';
+    display: block;
+    font-size: 1.2rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,106 @@
+/* 黒板 */
+.blackboard {
+    position: relative;
+    /* 左右の余白を自動調整 */
+    margin: 0 auto;
+    /* 左右のパディングを調整 */
+    padding: 1.6rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0, 0, 0, 0.9);
+    max-width: 500px;
+}
+
+.blackboard.answer p {
+    margin-left: 3rem;
+}
+
+.blackboard .blink-before {
+    font-size: 1.2rem;
+}
+
+.blackboard a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.blackboard .blink-before::before {
+    content: '▶';
+    position: absolute;
+    left: 2rem;
+    /* 点滅矢印の左からの位置 */
+    animation: blink 1.4s infinite;
+}
+
+.blackboard p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* 回り込み */
+.float-r {
+    float: center;  /* 中央揃えにする */
+    max-width: 150px;
+}
+
+/* 回り込み解除 */
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+/* 点滅 */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#yes:hover,
+#no:hover {
+    /* 要素を相対位置に配置 */
+    position: relative;
+    /* アニメーション設定 */
+    transition: background-color 2s ease;
+}
+
+/* 下線用の擬似要素 */
+#yes:hover::after,
+#no:hover::after {
+    /* 擬似要素にコンテンツを設定しない */
+    content: '';
+    /* 絶対位置に配置 */
+    position: absolute;
+    /* 左端から開始 */
+    left: 0;
+    /* 底辺から開始 */
+    bottom: 0;
+    /* 最初は幅0 */
+    width: 0;
+    /* 下線の太さ */
+    height: 3px;
+    /* 白色 */
+    background-color: #FFF;
+    /* アニメーション設定 */
+    transition: width 0.5s ease;
+}
+
+/* hover状態が解除されたときに下線を隠す */
+#yes:hover:hover::after,
+#no:hover:hover::after {
+    /* 幅を100%まで広げる */
+    width: 100%;
+}
